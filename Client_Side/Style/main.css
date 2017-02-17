@@ -240,7 +240,7 @@ body
 
 .greyOutLink
 {
-	color: #CCC !important;
+	// color: #CCC !important;
 	pointer-events: none !important;
 	cursor: default;
 }
