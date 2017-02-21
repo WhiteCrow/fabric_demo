@@ -9,7 +9,7 @@ $(document).ready(function(){
 	$('#searchBar').focusout(function(){
 		if($('#searchBar').val().trim() == '')
 		{
-			$('#searchBar').val('Search by V5C ID...')
+			$('#searchBar').val('搜索ID...')
 		}
 	})
 	$(document).on('mouseover', '.userGroup', function(){
@@ -327,7 +327,7 @@ function toggleFilters()
 		}, 500, function(){
 			$('#filtTxt').animate({left: "-=92"}, 0);
 			$('#filtTxt').css('border-bottom', '0');
-			$('#filtTxt').html('Filters &and;<span id="filtBlock" class="whiteBlock" ></span>');
+			$('#filtTxt').html('过滤器 &and;<span id="filtBlock" class="whiteBlock" ></span>');
 			$('#filtBlock').css('display', 'block');
 			$('#filters').slideDown(500);
 		});
@@ -338,7 +338,7 @@ function toggleFilters()
 		setTimeout(function(){
 			$('#filtTxt').css('border-bottom', '2px solid');
 			$('#filtTxt').css('border-bottom-color', colours[$('#userType').html().toLowerCase().replace(' ', '_')]);
-			$('#filtTxt').html('Filters &or;<span id="filtBlock" class="whiteBlock" ></span>');
+			$('#filtTxt').html('过滤器 &or;<span id="filtBlock" class="whiteBlock" ></span>');
 			$('#filtBlock').css('display', 'none');
 			$('#sortTxt').show()
 			$('#filtTxt').animate({left: "+=92"}, 0);
@@ -371,7 +371,7 @@ function toggleSorts()
 		{
 			$('#filtTxt').hide();
 			$('#sortTxt').css('border-bottom', '0');
-			$('#sortTxt').html('Sort &and;<span id="sortBlock" class="whiteBlock" ></span>');
+			$('#sortTxt').html('排序 &and;<span id="sortBlock" class="whiteBlock" ></span>');
 			$('#sortBlock').css('display', 'block');
 			$('#sorts').slideDown(500);
 		});
@@ -380,7 +380,7 @@ function toggleSorts()
 	{
 		$('#sorts').slideUp(500);
 		setTimeout(function(){
-			$('#sortTxt').html('Sort &or;<span id="sortBlock" class="whiteBlock" ></span>');
+			$('#sortTxt').html('排序 &or;<span id="sortBlock" class="whiteBlock" ></span>');
 			$('#sortBlock').css('display', 'none');
 			$('#sortTxt').css('border-bottom', '2px solid');
 			$('#sortTxt').css('border-bottom-color', colours[$('#userType').html().toLowerCase().replace(' ', '_')]);

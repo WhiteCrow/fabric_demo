@@ -1,13 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-		<title>Regulator - Transfer Asset</title>
+		<title>制造商 - 资产交易</title>
 		<link rel="stylesheet" type="text/css" href="Style/main.css" ></link>
+		<link rel="stylesheet" type="text/css" href="Style/bootstrap.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="Style/font-awesome.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="Style/stylish-portfolio.css"></link>
 		<link rel="stylesheet" type="text/css" href="Style/contractData.css" ></link>
 		<link rel="stylesheet" type="text/css" href="Style/regulator.css" ></link>
 		<script src="JavaScript/plugins/jQuery-1.11.3.js" type="text/javascript"></script>
 		<script src="JavaScript/plugins/jquery-ui-1.11.4/jquery-ui.min.js"></script>
 		<script src="JavaScript/plugins/jquery.mousewheel.js" type="text/javascript"></script>
+		<script src="JavaScript/baidumap.js"></script>
 		<script src="JavaScript/config/config.js" type="text/javascript"></script>
 		<script>var pgNm = "Regulator"; var pgNmPlural="regulators"; var sendDets = "Regulator: "+config.participants['regulator'].company; var recDets = "Manufacturer"; var recPlural="Manufacturers"; var transferName = "authority_to_manufacturer";</script>
 		<script src="JavaScript/admin/identity.js" type="text/javascript"></script>
@@ -21,6 +25,28 @@
 		<script src="JavaScript/participant_functions/recipients.js" type="text/javascript"></script>
 	</head>
 	<body onload="loadParticipant('regulator')" >
+
+    <nav class="navbar navbar-default navbar-fixed-top affix" id="mainNav">
+      <div class="container-fluid"><!--Brand and toggle get grouped for better mobile display-->
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>Menu
+            <i class="fa fa-bars"></i>
+          </button>
+          <a class="navbar-brand page-scroll" href="./index.html#page-top">AllLinkChain</a>
+        </div>
+        <!--Collect the nav links, forms, and other content for toggling-->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <!--li class=""><a class="page-scroll" href="#about">关于</a></li-->
+            <li class=""><a class="page-scroll" href="#services">服务</a></li>
+            <!--li class=""><a class="page-scroll" href="#portfolio"> 项目</a></li-->
+            <li class=""><a class="page-scroll" href="#contact">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
 		<div id="fade" ></div>
 		<div id="loader" ><img src="Images/Regulator/loading.gif" height="100" width="100" alt="loading" text="please wait..." /><br /><br /><span id="loaderMessages" style="color:#03648E;"></span></div>
 		<table id="mainTbl" >
@@ -38,7 +64,7 @@
 				<td class="brkRw"></td>
 				<td class="smlBrk brkRw"></td>
 			</tr>
-			<tr>
+			<!--tr>
 				<td class="smlBrk"></td>
 				<td id="txtBxRw">
 					<a href="index.html" >Home</a>
@@ -48,11 +74,11 @@
 					<div id="user" class="rtTxt" ><span id="username" ></span> (Regulator:  <span id="company"></span>)</div>
 				</td>
 				<td class="smlBrk"></td>
-			</tr>
+			</tr-->
 			<tr>
 				<td class="smlBrk"></td>
 				<td style="padding-bottom:25.5px; padding-top:25.5px">
-					<span id="createV5C" class="lftBtn mnBtn" onclick="createAsset()">Create V5C</span>
+					<span id="createV5C" class="lftBtn mnBtn" onclick="createAsset()">创建商品</span>
 				</td>
 				<td class="smlBrk"></td>
 				<td></td>
@@ -60,9 +86,9 @@
 			</tr>
 			<tr>
 				<td class="smlBrk"></td>
-				<td class="bxHd" id="lftBxHd" >Vehicle Templates<img src="Icons/asset.svg" class="rtBtn noPoint" width="17" height="20" /></td>
+				<td class="bxHd" id="lftBxHd" >商品模板<img src="Icons/asset.svg" class="rtBtn noPoint" width="17" height="20" /></td>
 				<td class="smlBrk" ></td>
-				<td class="bxHd" id="rtBxHd" >Manufacturer<img src="Icons/person.svg" class="rtBtn noPoint" width="15" height="20" /></td>
+				<td class="bxHd" id="rtBxHd" >制造商<img src="Icons/person.svg" class="rtBtn noPoint" width="15" height="20" /></td>
 				<td class="smlBrk" ></td>
 			</tr>
 			<tr id="mdHldr">
@@ -86,9 +112,9 @@
 			</tr>
 			<tr>
 				<td class="smlBrk"></td>
-				<td><span class="lftBtn mnBtn" id="cclPg" >Cancel</span></td>
+				<td><span class="lftBtn mnBtn" id="cclPg" >取消</span></td>
 				<td class="smlBrk"></td>
-				<td><span class="rtBtn mnBtn" id="subPg" >Transfer Assets</span></td>
+				<td><span class="rtBtn mnBtn" id="subPg" >交易</span></td>
 				<td class="smlBrk"></td>
 			</tr>
 			<tr>

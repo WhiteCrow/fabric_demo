@@ -35,5 +35,7 @@ services:
     links:
       - vp0
       - membersrvc
+    volumes:
+      - ./Client_Side:/usr/src/app/Client_Side
     ports:
       - "8080:8080"
