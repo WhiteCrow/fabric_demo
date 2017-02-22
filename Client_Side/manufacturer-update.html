@@ -1,7 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-		<title>制造商 - Update Asset</title>
+		<title>制造商 - 更新商品</title>
+		<link rel="stylesheet" type="text/css" href="Style/main.css"></link>
+		<link rel="stylesheet" type="text/css" href="Style/bootstrap.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="Style/stylish-portfolio.css"></link>
+		<link rel="stylesheet" type="text/css" href="Style/font-awesome.min.css"></link>
 		<link rel="stylesheet" type="text/css" href="Style/main.css" ></link>
 		<link rel="stylesheet" type="text/css" href="Style/contractData.css" ></link>
 		<link rel="stylesheet" type="text/css" href="Style/manufacturer.css" ></link>
@@ -20,6 +24,26 @@
 		<script src="JavaScript/admin/identity.js" type="text/javascript"></script>
 	</head>
 	<body>
+    <nav class="navbar navbar-default navbar-fixed-top affix" id="mainNav">
+      <div class="container-fluid"><!--Brand and toggle get grouped for better mobile display-->
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>Menu
+            <i class="fa fa-bars"></i>
+          </button>
+          <a class="navbar-brand page-scroll" href="./index.html#page-top">AllLinkChain</a>
+        </div>
+        <!--Collect the nav links, forms, and other content for toggling-->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <!--li class=""><a class="page-scroll" href="#about">关于</a></li-->
+            <li class=""><a class="page-scroll" href="#services">服务</a></li>
+            <!--li class=""><a class="page-scroll" href="#portfolio"> 项目</a></li-->
+            <li class=""><a class="page-scroll" href="#contact">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 		<div id="fade" style="display:block!important" ></div>
 		<div id="loader" style="display:block!important" ><img src="Images/Manufacturer/loading.gif" height="100" width="100" alt="loading" text="please wait..." /><br /><br /><span id="loaderMessages" style="color:#016059;">0 assets</span></div>
 		<table id="mainTbl" >
@@ -38,10 +62,10 @@
 			<tr>
 				<td class="smlBrk"></td>
 				<td id="txtBxRw">
-					<a href="index.html" >Home</a>
+					<!--a href="index.html" >Home</a-->
 				</td>
 				<td colspan="2" id="userStuff">
-					<div id="user" class="rtTxt" ><span id="userDets" ><span id="username" ></span> (<span id="userType">Manufacturer</span>: <span id="company"></span>)</span>&nbsp;<span id="menuBtn" onclick="toggleMenu()" ><div class="menuBar" ></div><div class="menuBar" ></div><span id="userBlock" class="menuWhiteBlock"></span></span></div>
+					<div id="user" class="rtTxt" ><span id="userDets" ><span id="username" ></span> (<span id="userType">制造商</span>: <span id="company"></span>)</span>&nbsp;<span id="menuBtn" onclick="toggleMenu()" ><div class="menuBar" ></div><div class="menuBar" ></div><span id="userBlock" class="menuWhiteBlock"></span></span></div>
 				</td>
 				<td class="smlBrk"></td>
 			</tr>
@@ -58,13 +82,13 @@
 			</tr>
 			<tr id="insAft">
 				<td class="smlBrk"></td>
-				<td class="bxHd">V5C ID</td>
-				<td class="bxHd" colspan="2" >Details</td>
+				<td class="bxHd">ID</td>
+				<td class="bxHd" colspan="2" >详情</td>
 				<td class="smlBrk" ></td>
 			</tr>
 			<tr>
 				<td class="smlBrk"></td>
-				<td><span class="lftBtn mnBtn" id="cclPg" >Cancel</span></td>
+				<td><span class="lftBtn mnBtn" id="cclPg" >取消</span></td>
 				<td colspan="2" ></td>
 				<td class="smlBrk"></td>
 			</tr>
@@ -77,25 +101,25 @@
 		</table>
 		<table id="chooseOptTbl" >
 			<tr>
-				<td class="bxHd" id="chooseOptHd" colspan="3" ><span>V5C</span><img onclick="closeEditTbl()" src="Icons/close.svg" class="rtBtn" id="clsOpt" width="15" height="15" /></td>
+				<td class="bxHd" id="chooseOptHd" colspan="3" ><span>商品</span><img onclick="closeEditTbl()" src="Icons/close.svg" class="rtBtn" id="clsOpt" width="15" height="15" /></td>
 			</tr>
 			<tr>
-				<td class="editRw greyOut">V5C</td><td colspan="2" class="editRw greyOut"><input readonly type="text" name="v5cID" id="v5cID" class="tblTxt greyOut" value="0" /><input type="hidden" id="hidV5cID" /></td>
+				<td class="editRw greyOut">型号</td><td colspan="2" class="editRw greyOut"><input readonly type="text" name="v5cID" id="v5cID" class="tblTxt greyOut" value="0" /><input type="hidden" id="hidV5cID" /></td>
 			</tr>
 			<tr>
-				<td class="editRw">VIN</td><td colspan="2" class="editRw"><input type="text" name="vin" id="vin" class="tblTxt" value="0" /><input type="hidden" id="hidVin" /></td>
+				<td class="editRw">编号</td><td colspan="2" class="editRw"><input type="text" name="vin" id="vin" class="tblTxt" value="0" /><input type="hidden" id="hidVin" /></td>
 			</tr>
 			<tr>
-				<td class="editRw">Make</td><td colspan="2" class="editRw"><input type="text" name="make" id="make" class="tblTxt" value="undefined" /><input type="hidden" id="hidMake" /></td>
+				<td class="editRw">质检员</td><td colspan="2" class="editRw"><input type="text" name="make" id="make" class="tblTxt" value="undefined" /><input type="hidden" id="hidMake" /></td>
 			</tr>
 			<tr>
-				<td class="editRw">Model</td><td colspan="2" class="editRw"><input type="text" name="model" id="model" class="tblTxt" value="undefined" /><input type="hidden" id="hidModel" /></td>
+				<td class="editRw">产地</td><td colspan="2" class="editRw"><input type="text" name="model" id="model" class="tblTxt" value="undefined" /><input type="hidden" id="hidModel" /></td>
 			</tr>
 			<tr>
-				<td class="editRw">Colour</td><td colspan="2" class="editRw"><input type="text" name="colour" id="colour" class="tblTxt" value="undefined" /><input type="hidden" id="hidColour" /></td>
+				<td class="editRw">颜色</td><td colspan="2" class="editRw"><input type="text" name="colour" id="colour" class="tblTxt" value="undefined" /><input type="hidden" id="hidColour" /></td>
 			</tr>
 			<tr>
-				<td class="editRw">Reg</td><td colspan="2" class="editRw"><input type="text" name="reg" id="reg" class="tblTxt" value="undefined" /><input type="hidden" id="hidReg" /></td>
+				<td class="editRw">备注</td><td colspan="2" class="editRw"><input type="text" name="reg" id="reg" class="tblTxt" value="undefined" /><input type="hidden" id="hidReg" /></td>
 			</tr>
 			<tr>
 				<td colspan="3" id="errorRw"  >
