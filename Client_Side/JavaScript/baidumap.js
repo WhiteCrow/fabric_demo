@@ -24,4 +24,6 @@ function init() {
     });
 
 }
-window.onload = loadJScript;  //异步加载地图
+$(document).ready(function(){
+  loadJScript();
+})
